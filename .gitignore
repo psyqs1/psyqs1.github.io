@@ -1,0 +1,14 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+package-lock.json
+package.json
+playwright.config.test
+/test-examples/
+
+/.vscode/

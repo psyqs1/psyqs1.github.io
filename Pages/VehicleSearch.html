@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Style/Style.css">
+    <script type="module" src="../Modules/SB.js"></script>
+    <script type="module" src="../Modules/VehicleSearchMain.js"></script>
+    <title>Vehicle Search</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <header>
+            <h1>Vehicle Search!</h1>
+
+            <ul class="navbar"> 
+                <li><a href="../Pages/PeopleSearch.html">People search</a></li>
+                <li class="selected"><a href="">Vehicle search</a></li>
+                <li><a href="../Pages/AddVehicle.html">Add a vehicle</a></li>
+            </ul>
+        </header>
+
+        <aside>
+            <img src="../Assets/Website/Cyan.png" alt="Image of a Cyan-maned, nameless horse. It is racing within the halls of its own mind.">
+        </aside>
+
+        <main>
+            <form class="vehicleSearch">
+                <label for="rego">Search by license plate number:</label>
+                <input type="text" id="rego" required>
+                <button type="button" id="submit" disabled>Submit</button>
+              </form>
+
+              <div class="message" id="message">&nbsp</div>
+
+              <div class="results" id="results">
+              </div>
+        </main>
+
+        <footer>This is a sample for the COMP1004 coursework, by Quentin Schmuziger (psyqs1)</footer>
+    </div>
+</body>
+
+</html>

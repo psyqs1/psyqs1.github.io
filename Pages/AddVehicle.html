@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"> <!--Example of accessibillity element 4-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Style/Style.css">
+    <script type="module" src="../Modules/SB.js"></script>
+    <script type="module" src="../Modules/AddVehicleMain.js"></script>
+    <title>Add Vehicle</title> <!--Example of accessibillity element 3-->
+</head>
+
+<body>
+    <div class="container" id="container">
+        <header> <!--Example of accessibillity element 10-->
+            <h1>Add Vehicle!</h1> <!--Example of accessibillity element 9-->
+
+            <ul class="navbar"> 
+                <li><a href="../Pages/PeopleSearch.html">People search</a></li> <!--Example of accessibillity element 6 and 7-->
+                <li><a href="../Pages/VehicleSearch.html">Vehicle search</a></li>
+                <li class="selected"><a href="">Add a vehicle</a></li>
+            </ul>
+        </header>
+
+        <aside>
+            <img src="../Assets/Website/ComelyMaterialMorning.png" alt="An image of a pink horse reaching a long-desired apple."> <!--Example of accessibillity element 2-->
+        </aside>
+
+        <main>
+            <form class="addVehicle">
+                <label for="rego">Plate Number:</label> <!--Example of accessibillity element 5-->
+                <input type="text" id="rego" required>
+
+                <label for="make">Make:</label>
+                <input type="text" id="make" required>
+
+                <label for="model">Model:</label>
+                <input type="text" id="model" required>
+
+                <label for="colour">Colour:</label>
+                <input type="text" id="colour" required>
+
+                <label></label>
+                <div class="ownerTabBar">
+                    <button type="button" id="existingOwnerButton"><u>Existing Owner</u></button> <!--Example of accessibillity element 1-->
+                    <button type="button" id="checkOwnerButton" disabled>Check owner</button>
+                    <button type="button" id="newOwnerButton" disabled><u>New owner</u></button>
+                    <button type="button" id="addOwnerButton" disabled>Add owner</button>
+                </div>
+
+                <label class="existingOwnerTab" for="owner">Owner Name:</label>
+                <input class="existingOwnerTab" type="text" id="owner" required>
+                
+                <label class="existingOwnerTab">Owner:</label>
+                <div class="existingOwnerTab results" id="results">
+                </div>
+                
+                <label class="newOwnerTab" for="name">New Owner Name:</label>
+                <input class="newOwnerTab" type="text" id="name" required>
+
+                <label class="newOwnerTab" for="address">New Owner Address:</label>
+                <input class="newOwnerTab" type="text" id="address" required>
+
+                <label class="newOwnerTab" for="dob">New Owner Date of Birth:<br><small>(YYYY-MM-DD)</small></label>
+                <input class="newOwnerTab" type="text" id="dob" pattern="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$" required>
+
+                <label class="newOwnerTab" for="license">New Owner License Number:</label>
+                <input class="newOwnerTab" type="text" id="license" required>
+
+                <label class="newOwnerTab" for="expire">   New Owner Expiry Date:<br><small>(YYYY-MM-DD)</small></label>
+                <input class="newOwnerTab" type="text" id="expire" pattern="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$" required>
+
+                <button type="button" id="submit" disabled>Add vehicle</button>
+              </form>
+
+              <div>
+                <div class="message" id="message-owner">&nbsp</div> 
+                <div class="message" id="message-vehicle">&nbsp</div> 
+              </div>
+        </main>
+
+        <footer>This is a sample for the COMP1004 coursework, by Quentin Schmuziger (psyqs1)</footer>
+    </div>
+</body>
+
+</html>
