@@ -16,7 +16,9 @@ var OwnerID;
 var LastCheckedOwner = null;
 var Tab = "Existing";
 
-function Debounce(Timeout, Action) { //Hmmmm
+//Debounce function, executes an action after x amount of time since last call.
+//Intended to do certain actions after user stops inputting, without them having to do anything.
+function Debounce(Timeout, Action) {
     let Timer; 
     return (...args) => {
         clearTimeout(Timer);
@@ -25,6 +27,7 @@ function Debounce(Timeout, Action) { //Hmmmm
 }
 
 //#region Existing Owner Tab
+//This region covers functionality for using an owner that already exists in the database
 const ExistingOwnerButton = document.getElementById("existingOwnerButton");
 const ExistingOwnerTab = document.getElementsByClassName("existingOwnerTab");
 const OwnerInput = document.getElementById("owner");
@@ -89,6 +92,9 @@ async function ValidateExistingOwner() {
     GlobalCheck();
 }
 
+//Automatic/Forceful selection
+//Used if user tries to add an owner that exists
+//Or once a new owner is successfully added
 function ForceSetExistingOwner(Person) {
     ExistingOwnerButton.click();
     
@@ -109,6 +115,7 @@ function ForceSetExistingOwner(Person) {
 //#endregion
 
 //#region New Owner Tab
+//This region covers functionality for adding a new owner to the database
 const NewOwnerButton = document.getElementById("newOwnerButton");
 const NewOwnerTab = document.getElementsByClassName("newOwnerTab");
     const NameInput = document.getElementById("name");
@@ -140,9 +147,7 @@ function ShowNewOwnerTab() {
 
     MessageOwner.textContent = "";
 }
-//#endregion
 
-//#region Add owner
 const AddOwnerButton = document.getElementById("addOwnerButton");
 
 async function AddPerson() {
@@ -198,6 +203,7 @@ async function AddPerson() {
 //#endregion
 
 //#region Selection
+//When listing possible owners, if one is selected, this is called
 async function SelectMe() {
     await FetchPeopleByID(this.dataset.personid).then(
         (People) => {
@@ -276,11 +282,18 @@ function CheckAllowSubmit() {
     return Valid;
 }
 
+function CheckOwnerExists() {
+    let Valid = !!OwnerID;
+    Results.style.border = Valid ? "2px dashed black" : "2px dashed red;"
+    return Valid;
+}
+
 function GlobalCheck() {
     CheckAllowCheckOwner();
     CheckAllowNewOwner();
     CheckAllowAddOwner();
     CheckAllowSubmit();
+    CheckOwnerExists();
 }
 //#endregion
 

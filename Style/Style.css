@@ -1,7 +1,7 @@
 .container {
     display: grid;
 
-    @media screen and (max-width: 499px) { /*Mobile*/
+    @media screen and (max-width: 499px) { /*Mobile */
         grid-template-areas: 
         "Header Header" 
         "Main Main"
@@ -184,7 +184,7 @@ main {
         padding: 10px;
         min-height: 53vh;
 
-        border: 2px dashed black;
+        border: 2px dashed red;
 
         & > .result {
             flex: 1;

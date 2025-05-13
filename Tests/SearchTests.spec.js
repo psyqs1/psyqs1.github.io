@@ -97,6 +97,18 @@ test('VehicleSearch, Empty Fields', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Submit' })).toBeDisabled();
 });
 
+//Tries to search a nonexistant license plate
+//Goal: Error message is displayed
+test('VehicleSearch, Vehicle Not In Database', async ({ page }) => {
+  await page.getByRole('link', { name: 'Vehicle search' }).click();
+
+  await page.getByRole('textbox', { name: 'Search by license plate number:' }).fill('ISUREHOPETHISISNOTALICENSENUMBER');
+
+  await page.getByRole('button', { name: 'Submit' }).click();
+
+  await expect(page.locator("#message")).toContainText("No result found!");
+});
+
 //The system will then show all the details of the car (e.g., type, colour etc.), and the ownerʼs name and license number.
 test('VehicleSearch, Returns All Details', async ({ page}) => {
 

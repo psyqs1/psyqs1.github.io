@@ -3,6 +3,10 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const SB = createClient("https://dggmyjmokbqvugwjkvil.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRnZ215am1va2JxdnVnd2prdmlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQxMzEzOTEsImV4cCI6MjA1OTcwNzM5MX0.xW9DKbpYVibTu3Jpe8bvC50Hhpk5BZyTWjgHoQp3HOE");
 console.log("Supabase client created!");
 
+//#region Element Creation Functions
+//Functions that return the raw HTML to display a person or vehicle's information. 
+//The raw HTML is intended to be appended to a div's innerHTML.
+
 function CreatePersonElement(PersonID, Name, Address, DOB, LPN, ExpiryDate) {
     return `
         <div class="result" id="PERSONELEMENT${PersonID}">
@@ -70,6 +74,11 @@ function CreateVehicleElement(VehicleID, Make, Model, Color, OwnerID, OwnerName)
         </div>
     `;
 }
+//#endregion
+
+//#region Insertion & Fetching Functions
+//Functions that interface with Supabase to fetch or insert people or vehicles into the database.
+//Provides different functionalities, for example: fetching by name, or by id, or by every characteristic (to find exact matches)
 
 async function FetchPeopleByNameOrLPN(Name, LN) {
     const { data, error } = (await SB
@@ -177,6 +186,7 @@ async function InsertVehicle(ID, _Make, _Model, _Colour, _OwnerID) {
 
     return data;
 }
+//#endregion
 
 export { 
     CreatePersonElement,

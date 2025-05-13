@@ -8,7 +8,7 @@ node_modules/
 
 package-lock.json
 package.json
-playwright.config.test
-/test-examples/
+playwright.config.ts
+/tests-examples/
 
 /.vscode/
