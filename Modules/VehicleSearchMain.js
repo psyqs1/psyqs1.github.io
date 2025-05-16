@@ -62,3 +62,5 @@ function CheckAllowSubmit() {
 
 RegoInput.addEventListener("input", CheckAllowSubmit);
 Submit.addEventListener("click", SubmitClickHandler);
+
+Results.style.border = "2px dashed black";
